@@ -52,7 +52,8 @@ function startTimer() {
     setInterval(displayNextImage, 10000);
 }
 
-var images = [], x = -1;
+var images = [],
+    x = -1;
 images[0] = "img/bag.gif";
 images[1] = "img/watch.gif";
 images[2] = "img/jacket.gif";
@@ -60,3 +61,47 @@ images[2] = "img/jacket.gif";
 
 
 
+//number count
+let happyusercount = setInterval(updated);
+let reviewcount = setInterval(review_updated);
+let downloadcount = setInterval(download_update);
+
+
+let happyuser = 0;
+let review = 0;
+let download = 0;
+
+
+// $(window).scroll(function() {
+//     if (document.getElementById("powerful-solutions")) {
+//         if (happyusercount === 0) {
+//             happyusercount = setInterval(updated);
+//         }
+
+//     }
+// });
+
+
+function updated() {
+    var count = document.getElementById("counter");
+    count.innerHTML = ++happyuser + "k";
+    if (happyuser === 500) {
+        clearInterval(happyusercount);
+    }
+}
+
+function review_updated() {
+    var reviews_count = document.getElementById("reviews-count");
+    reviews_count.innerHTML = ++review + "k";
+    if (review === 50) {
+        clearInterval(reviewcount);
+    }
+}
+
+function download_update() {
+    var download_count = document.getElementById("download-count");
+    download_count.innerHTML = ++download + "k";
+    if (download === 100) {
+        clearInterval(downloadcount);
+    }
+}
