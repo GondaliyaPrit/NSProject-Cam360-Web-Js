@@ -59,49 +59,39 @@ images[1] = "img/watch.gif";
 images[2] = "img/jacket.gif";
 
 
+//Number count js 
+var a = 0;
+$(window).scroll(function () {
+    var oTop = $("#counter-box").offset().top - window.innerHeight;
+    if (a == 0 && $(window).scrollTop() > oTop) {
+        $(".counter").each(function () {
+            var $this = $(this),
+                countTo = $this.attr("data-number");
+            $({
+                countNum: $this.text()
+            }).animate(
+                {
+                    countNum: countTo
+                },
 
-
-//number count
-let happyusercount = setInterval(updated);
-let reviewcount = setInterval(review_updated);
-let downloadcount = setInterval(download_update);
-
-
-let happyuser = 0;
-let review = 0;
-let download = 0;
-
-
-// $(window).scroll(function() {
-//     if (document.getElementById("powerful-solutions")) {
-//         if (happyusercount === 0) {
-//             happyusercount = setInterval(updated);
-//         }
-
-//     }
-// });
-
-
-function updated() {
-    var count = document.getElementById("counter");
-    count.innerHTML = ++happyuser + "k";
-    if (happyuser === 500) {
-        clearInterval(happyusercount);
+                {
+                    duration: 850,
+                    easing: "swing",
+                    step: function () {
+                        //$this.text(Math.ceil(this.countNum));
+                        $this.text(
+                            Math.ceil(this.countNum).toLocaleString("en")
+                        );
+                    },
+                    complete: function () {
+                        $this.text(
+                            Math.ceil(this.countNum).toLocaleString("en")
+                        );
+                        //alert('finished');
+                    }
+                }
+            );
+        });
+        a = 1;
     }
-}
-
-function review_updated() {
-    var reviews_count = document.getElementById("reviews-count");
-    reviews_count.innerHTML = ++review + "k";
-    if (review === 50) {
-        clearInterval(reviewcount);
-    }
-}
-
-function download_update() {
-    var download_count = document.getElementById("download-count");
-    download_count.innerHTML = ++download + "k";
-    if (download === 100) {
-        clearInterval(downloadcount);
-    }
-}
+});
