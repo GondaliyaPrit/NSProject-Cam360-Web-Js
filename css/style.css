@@ -517,6 +517,18 @@ section.powerful-solutions {
     background-color: #442772;
 }
 
+
+.count-box p {
+    font-size: 28px;
+    color: white;
+    font-weight: 800;
+}
+
+.count-box {
+    display: flex;
+    align-items: center;
+}
+
 h2.powerful-subtext {
     font-size: 47px;
     font-weight: bold;
