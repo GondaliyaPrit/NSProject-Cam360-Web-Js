@@ -1,4 +1,4 @@
-jQuery(window).scroll(function() {
+jQuery(window).scroll(function () {
     var scroll = jQuery(window).scrollTop();
     if (scroll >= 100) {
         jQuery(".header-main").addClass("darkHeader");
@@ -16,8 +16,18 @@ const videoplay = document.getElementById("video-section-main");
 const videohide = document.getElementById("video-popup-hide");
 const videoclose = document.getElementById("video-close");
 
+//start button on click 
+
+// function ongetstart(){
+//         $('form').attr('action',"360view.html")
+// }
+
+document.getElementById("getstart").onclick = function () {
+    location.href("https://github.com/alan1204/360Slider/blob/master/slider.js")
+};
+
 //Video-play-close
-playbtn.onclick = function() {
+playbtn.onclick = function () {
 
     console.log("display if block")
     videohide.style.display = "block";
@@ -26,7 +36,7 @@ playbtn.onclick = function() {
     document.getElementById("mfp-iframe").src = "https://www.youtube.com/embed/auDrQk7UuW4";
 
 }
-videoclose.onclick = function() {
+videoclose.onclick = function () {
     videohide.style.display = "none";
     videoplay.style.display = "flex";
     videoclose.style.display = "none"
@@ -35,7 +45,7 @@ videoclose.onclick = function() {
     document.getElementById("mfp-iframe").src = "";
 }
 
-//change image every 5 sec
+//change image every 10 sec
 
 function displayNextImage() {
     x = (x === images.length - 1) ? 0 : x + 1;
@@ -95,3 +105,6 @@ $(window).scroll(function () {
         a = 1;
     }
 });
+
+
+
